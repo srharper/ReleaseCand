@@ -1,0 +1,66 @@
+﻿@model ReleaseCand.Models.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NumOfGuests)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NumOfGuests)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Reasons)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Reasons)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Other)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Other)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SpecialRequests)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SpecialRequests)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.ReservationID">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>
