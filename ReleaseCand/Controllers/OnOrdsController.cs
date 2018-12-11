@@ -161,13 +161,78 @@ namespace ReleaseCand.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Order(OnOrdViewModel viewModel)
         {
-            
+            var meal = new Meal
+            {
+                CheeseBurger = viewModel.CheeseBurger,
+                Lasagna = viewModel.Lasagna,
+                TiriMisu = viewModel.TiriMisu,
+                CheeseCake = viewModel.CheeseCake,
+                FrenchFries = viewModel.FrenchFries,
+                Pepsi = viewModel.Pepsi,
+                Sprite = viewModel.Sprite,
+                Water = viewModel.Water
+            };
+
+            var creditIn = new CreditIn
+            {
+                BillAddress = viewModel.BillAddress,
+                BillCity = viewModel.BillCity,
+                BillState = viewModel.BillState,
+                BillZip = viewModel.BillZip,
+                CreditCardNum = viewModel.CreditCardNum,
+                CCV = viewModel.CCV,
+                ExpDate = viewModel.ExpDate
+            };
+
+            var perInfo = new PerInfo
+            {
+                LastName = viewModel.LastName,
+                FirstName = viewModel.FirstName,
+                Email = viewModel.Email,
+                Phone = viewModel.Phone
+            };
+
+            var req = new Req
+            {
+                Date = DateTime.Now,
+                Meal = meal,
+                CreditIn = creditIn,
+                PerInfo = perInfo
+            };
+
+            if (ModelState.IsValid)
+            {
+                _context.Add(meal);
+                _context.Add(creditIn);
+                _context.Add(perInfo);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Report", "Home");
+            }
+
+            //var reqs = await _context.Req
+            //    .include(x => x.Meal)
+            //    .include(x => x.CreditIn)
+            //    .include(x => x.PerInfo)
+            //    .ToListAsync();
+
+            //foreach (var x in reqs)
+            //{
+            //    if ((req.PerInfo.LastName == perInfo.LastName) && (req.PerInfo.FirstName == perInfo.FirstName))
+            //    {
+            //        ModelState.AddModelError("LastName", "There is already an");
+            //        ModelState.AddModelError("FirstName", "This first and last name already exists");
+            //    }
+            //}
+            //return View(viewModel);
+
             return View(viewModel);
         }
 
         [HttpGet, HttpPost]
         public async Task<IActionResult> Report()
         {
+            //var reqs = await _context.Req
+
             return View();
         }
     }

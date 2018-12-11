@@ -18,7 +18,7 @@ namespace ReleaseCand.Models
         [Display(Name = "Cheese Burger")]
         public bool CheeseBurger { get; set; }
         public bool Lasagna { get; set; }
-        public bool TiraMisu { get; set; }
+        public bool TiriMisu { get; set; }
         public bool CheeseCake { get; set; }
         [Display(Name = "French Fries")]
         public bool FrenchFries { get; set; }
