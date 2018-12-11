@@ -1,0 +1,135 @@
+﻿@model ReleaseCand.Models.OnOrd
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>OnOrd</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CheeseBurger)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheeseBurger)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lasagna)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lasagna)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TiriMisu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TiriMisu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CheeseCake)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CheeseCake)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FrenchFries)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FrenchFries)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pepsi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pepsi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Sprite)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Sprite)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Water)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Water)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillAddress)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillAddress)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillCity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillCity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillState)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillState)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BillZip)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BillZip)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreditCardNum)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreditCardNum)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CCV)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CCV)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ExpDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ExpDate)
+        </dd>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="OnOrdID" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>
