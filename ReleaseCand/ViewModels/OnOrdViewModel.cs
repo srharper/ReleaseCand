@@ -12,11 +12,14 @@ namespace ReleaseCand.ViewModels
         public string FirstName { get; set; }
         public string Email { get; set; }
         [StringLength(14)]
+        [Display(Name = "Phone Number")]
         public string PhoneNumber { get; set; }
+        [Display(Name = "Cheese Burger")]
         public bool CheeseBurger { get; set; }
         public bool Lasagna { get; set; }
-        public bool TiriMisu { get; set; }
+        public bool TiraMisu { get; set; }
         public bool CheeseCake { get; set; }
+        [Display(Name = "French Fries")]
         public bool FrenchFries { get; set; }
         public bool Pepsi { get; set; }
         public bool Sprite { get; set; }

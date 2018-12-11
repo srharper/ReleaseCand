@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ReleaseCand.Models;
 using ReleaseCand.ViewModels;
-
+using System.Linq.Dynamic.Core;
 
 namespace ReleaseCand.Controllers
 {
@@ -149,6 +149,26 @@ namespace ReleaseCand.Controllers
         private bool OnOrdExists(int id)
         {
             return _context.OnOrd.Any(e => e.OnOrdID == id);
+        }
+
+        [HttpGet]
+        public IActionResult Order()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Order(OnOrdViewModel viewModel)
+        {
+            
+            return View(viewModel);
+        }
+
+        [HttpGet, HttpPost]
+        public async Task<IActionResult> Report()
+        {
+            return View();
         }
     }
 }

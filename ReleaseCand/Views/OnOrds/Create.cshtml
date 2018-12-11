@@ -1,37 +1,41 @@
 ﻿@model ReleaseCand.Models.OnOrd
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Welcome";
 }
 
-<h2>Create</h2>
+<div style="font-size:2em" class="alert alert-info text-center"><b>Online Order Form</b></div><hr />
 
-<h4>OnOrd</h4>
-<hr />
+<h4><b>Personal Information: </b></h4>
+
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="LastName" class="control-label"></label>
+                <label asp-for="LastName" class="control-label"> Last Name: </label>
                 <input asp-for="LastName" class="form-control" />
                 <span asp-validation-for="LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="FirstName" class="control-label"></label>
+                <label asp-for="FirstName" class="control-label"> First Name: </label>
                 <input asp-for="FirstName" class="form-control" />
                 <span asp-validation-for="FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
+                <label asp-for="Email" class="control-label">Email Address: </label>
                 <input asp-for="Email" class="form-control" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label"></label>
+                <label asp-for="PhoneNumber" class="control-label">Phone Number: </label>
                 <input asp-for="PhoneNumber" class="form-control" />
                 <span asp-validation-for="PhoneNumber" class="text-danger"></span>
             </div>
+            <br />
+
+            <h4><b>Select Your Meal:</b></h4>
+
             <div class="form-group">
                 <div class="checkbox">
                     <label>
@@ -49,7 +53,7 @@
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="TiriMisu" /> @Html.DisplayNameFor(model => model.TiriMisu)
+                        <input asp-for="TiraMisu" /> @Html.DisplayNameFor(model => model.TiraMisu)
                     </label>
                 </div>
             </div>
@@ -88,38 +92,42 @@
                     </label>
                 </div>
             </div>
+            <br />
+
+            <h4><b>Credit Card Information: </b></h4>
+
             <div class="form-group">
-                <label asp-for="BillAddress" class="control-label"></label>
+                <label asp-for="BillAddress" class="control-label">Billing Address: </label>
                 <input asp-for="BillAddress" class="form-control" />
                 <span asp-validation-for="BillAddress" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillCity" class="control-label"></label>
+                <label asp-for="BillCity" class="control-label">City: </label>
                 <input asp-for="BillCity" class="form-control" />
                 <span asp-validation-for="BillCity" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillState" class="control-label"></label>
+                <label asp-for="BillState" class="control-label">State: </label>
                 <input asp-for="BillState" class="form-control" />
                 <span asp-validation-for="BillState" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="BillZip" class="control-label"></label>
+                <label asp-for="BillZip" class="control-label">Zip: </label>
                 <input asp-for="BillZip" class="form-control" />
                 <span asp-validation-for="BillZip" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CreditCardNum" class="control-label"></label>
+                <label asp-for="CreditCardNum" class="control-label">Credit Card Number: </label>
                 <input asp-for="CreditCardNum" class="form-control" />
                 <span asp-validation-for="CreditCardNum" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="CCV" class="control-label"></label>
+                <label asp-for="CCV" class="control-label">CCV: </label>
                 <input asp-for="CCV" class="form-control" />
                 <span asp-validation-for="CCV" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="ExpDate" class="control-label"></label>
+                <label asp-for="ExpDate" class="control-label">Expiration Date: </label>
                 <input asp-for="ExpDate" class="form-control" />
                 <span asp-validation-for="ExpDate" class="text-danger"></span>
             </div>
