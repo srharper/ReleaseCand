@@ -35,3 +35,11 @@ body {
         display: none;
     }
 }
+
+.header {
+    font-size: 30px;
+    border: thick solid #ffc000;
+    font-family: Arial,Arial,Helvitica,sans-serif;
+    background-color: #009000;
+    color: #ffffff;
+}
