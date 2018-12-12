@@ -11,22 +11,22 @@ using System.Linq.Dynamic.Core;
 
 namespace ReleaseCand.Controllers
 {
-    public class ReservationController : Controller
+    public class ReservationsController : Controller
     {
         private readonly ReleaseCandContext _context;
 
-        public ReservationController(ReleaseCandContext context)
+        public ReservationsController(ReleaseCandContext context)
         {
             _context = context;
         }
 
-        // GET: Reservation
+        // GET: Reservations
         public async Task<IActionResult> Index()
         {
             return View(await _context.Reservation.ToListAsync());
         }
 
-        // GET: Reservation/Details/5
+        // GET: Reservations/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -44,18 +44,18 @@ namespace ReleaseCand.Controllers
             return View(reservation);
         }
 
-        // GET: Reservation/Create
+        // GET: Reservations/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Reservation/Create
+        // POST: Reservations/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ReservationID,LastName,FirstName,Email,PhoneNumber,NumOfGuests,Reasons,Other,SpecialRequests")] Reservation reservation)
+        public async Task<IActionResult> Create([Bind("ReservationID,LastName,FirstName,Email,PhoneNumber,NumOfGuests,Reasons,Other,SpecialRequests,CustomerDate")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace ReleaseCand.Controllers
             return View(reservation);
         }
 
-        // GET: Reservation/Edit/5
+        // GET: Reservations/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -82,12 +82,12 @@ namespace ReleaseCand.Controllers
             return View(reservation);
         }
 
-        // POST: Reservation/Edit/5
+        // POST: Reservations/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ReservationID,LastName,FirstName,Email,PhoneNumber,NumOfGuests,Reasons,Other,SpecialRequests")] Reservation reservation)
+        public async Task<IActionResult> Edit(int id, [Bind("ReservationID,LastName,FirstName,Email,PhoneNumber,NumOfGuests,Reasons,Other,SpecialRequests,CustomerDate")] Reservation reservation)
         {
             if (id != reservation.ReservationID)
             {
@@ -117,7 +117,7 @@ namespace ReleaseCand.Controllers
             return View(reservation);
         }
 
-        // GET: Reservation/Delete/5
+        // GET: Reservations/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -135,7 +135,7 @@ namespace ReleaseCand.Controllers
             return View(reservation);
         }
 
-        // POST: Reservation/Delete/5
+        // POST: Reservations/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

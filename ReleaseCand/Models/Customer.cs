@@ -13,7 +13,5 @@ namespace ReleaseCand.Models
         public DateTime CustomerDate { get; set; }
 
         public int NumOfGuests { get; set; }
-
-        public Reservation Reservation { get; set; }
     }
 }

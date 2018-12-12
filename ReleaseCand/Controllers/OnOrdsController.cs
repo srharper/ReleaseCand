@@ -229,7 +229,7 @@ namespace ReleaseCand.Controllers
         }
 
         [HttpGet, HttpPost]
-        public async Task<IActionResult> Report()
+        public IActionResult Report()
         {
             //var reqs = await _context.Req
 

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using ReleaseCand.Models;
 using ReleaseCand.ViewModels;
+using System.Linq.Dynamic.Core;
 
 namespace ReleaseCand.Controllers
 {
@@ -65,29 +66,99 @@ namespace ReleaseCand.Controllers
             return View(customer);
         }
 
-        [HttpGet, HttpPost]
-        public async Task<IActionResult> Report()
+        [HttpGet]
+        public IActionResult Order()
         {
-            var customers = await _context.Customer
-                .Include(x => x.Reservation)
+            return View();
+        }
 
-                .ToListAsync();
-            var viewModel = new List<CustomerReportViewModel>();
-
-
-            foreach (var total in customers)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Order(CustomerReportViewModel viewModel)
+        {
+            var customer = new Customer
             {
-                viewModel.Add(new CustomerReportViewModel
-                {
-                    LastName = total.Reservation.LastName,
-                    FirstName = total.Reservation.FirstName,
-                    CustomerDate = total.CustomerDate,
-                    NumOfGuests = total.Reservation.NumOfGuests
-                }
+                CustomerDate = viewModel.CustomerDate,
+                NumOfGuests = viewModel.NumOfGuests
+            };
+            var custInfo = new CustInfo
+            {
+                LastName = viewModel.LastName,
+                FirstName = viewModel.FirstName,
+                Email = viewModel.Email,
+                PhoneNumber = viewModel.PhoneNumber
+            };
 
+            var special = new Special
+            {
+                NumOfGuests = viewModel.NumOfGuests,
+                Reasons = viewModel.Reasons,
+                Other = viewModel.Other
+            };
 
-                    );
+            if (ModelState.IsValid)
+            {
+                _context.Add(customer);
+                _context.Add(custInfo);
+                _context.Add(special);
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Report", "Home");
             }
+            return View(viewModel);
+
+        }
+        [HttpGet, HttpPost]
+        public IActionResult Report()
+        {
+
+            //var customer = new Customer
+            //{
+            //    CustomerDate = viewModel.CustomerDate,
+            //    NumOfGuests = viewModel.NumOfGuests
+            //};
+            //var custInfo = new CustInfo
+            //{
+            //    LastName = viewModel.LastName,
+            //    FirstName = viewModel.FirstName,
+            //    Email = viewModel.Email,
+            //    PhoneNumber = viewModel.PhoneNumber
+            //};
+
+            //var special = new Special
+            //{
+            //    NumOfGuests = viewModel.NumOfGuests,
+            //    Reasons = viewModel.Reasons,
+            //    Other = viewModel.Other
+            //};
+
+            //if (ModelState.IsValid)
+            //{
+            //    _context.Add(customer);
+            //    _context.Add(custInfo);
+            //    _context.Add(special);
+            //    await _context.SaveChangesAsync();
+            //    return RedirectToAction("Report", "Home");
+            //}
+            ////var customers = await _context.Customer
+            ////    .Include(x => x.Reservation)
+
+            ////    .ToListAsync();
+            ////var viewModel = new List<CustomerReportViewModel>();
+
+
+            ////foreach (var total in customers)
+            ////{
+            ////    viewModel.Add(new CustomerReportViewModel
+            ////    {
+            ////        LastName = total.Reservation.LastName,
+            ////        FirstName = total.Reservation.FirstName,
+            ////        CustomerDate = total.CustomerDate,
+            ////        NumOfGuests = total.Reservation.NumOfGuests
+            ////    }
+
+
+            ////        );
+            ////}
             return View();
         }
 

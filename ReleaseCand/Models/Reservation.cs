@@ -33,5 +33,7 @@ namespace ReleaseCand.Models
 
         [DisplayName("Please indicate a special request for a reservation room: ")]
         public string SpecialRequests { get; set; }
+
+        public DateTime CustomerDate { get; set; }
     }
 }
